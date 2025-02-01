@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Parrot Code Extension",
+    "version": "1.0",
+    "description": "A Chrome extension built with React and Vite",
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+      }
+    },
+    "permissions": ["storage"],
+    "host_permissions": ["<all_urls>"]
+}
+  
