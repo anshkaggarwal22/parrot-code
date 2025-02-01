@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Parrot Code Extension",
+    "name": "LeetCode AI Interviewer",
     "version": "1.0",
-    "description": "A Chrome extension built with React and Vite",
+    "description": "AI-driven mock interview for LeetCode problems",
     "action": {
       "default_popup": "index.html",
       "default_icon": {
@@ -11,7 +11,9 @@
         "128": "icon.png"
       }
     },
-    "permissions": ["storage"],
-    "host_permissions": ["<all_urls>"]
-}
-  
+    "permissions": ["storage", "tabs", "activeTab", "scripting", "microphone"],
+    "host_permissions": ["https://leetcode.com/problems/*"],
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
