@@ -8,7 +8,15 @@ export default function Popup() {
   // Countdown Timer Effect
   useEffect(() => {
     if (isInterviewing && timeLeft > 0) {
-      const timer = setInterval(() => setTimeLeft(timeLeft - 1), 1000);
+      const timer = setInterval(() => {
+        setTimeLeft(prevTime => {
+          if (prevTime <= 1) {
+            clearInterval(timer);
+            return 0; // Stop at 0
+          }
+          return prevTime - 1;
+        });
+      }, 1000);
       return () => clearInterval(timer);
     }
   }, [isInterviewing, timeLeft]);
@@ -21,7 +29,7 @@ export default function Popup() {
   // Format time as MM:SS
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
-    const secs = seconds % 10;
+    const secs = seconds % 60;
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
   };
 
