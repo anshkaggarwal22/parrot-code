@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Parrot AI Interviewer",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Turn any LeetCode problem into a mock interview",
   "action": {
     "default_popup": "index.html",
@@ -10,8 +10,19 @@
       "32": "Parrot.png",
       "48": "Parrot.png",
       "128": "Parrot.png"
-    }
+    },
+    "default_title": "Open Persistent Popup"
   },
-  "permissions": ["storage", "tabs", "activeTab", "scripting"],
-  "host_permissions": ["https://leetcode.com/problems/*"]
+  "permissions": ["storage", "tabs", "activeTab", "scripting","windows"],
+  "host_permissions": ["https://leetcode.com/problems/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/problems/*"],
+      "js": ["contentScript.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
 }
