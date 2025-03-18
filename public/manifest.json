@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Parrot AI Interviewer",
+  "name": "LeetCode Mock Interview Assistant",
   "version": "1.0.0",
-  "description": "Turn any LeetCode problem into a mock interview",
+  "description": "Transform any LeetCode problem into an interactive mock interview with AI feedback",
   "action": {
     "default_popup": "index.html",
     "default_icon": {
@@ -11,9 +11,9 @@
       "48": "Parrot.png",
       "128": "Parrot.png"
     },
-    "default_title": "Open Persistent Popup"
+    "default_title": "LeetCode Mock Interview"
   },
-  "permissions": ["storage", "tabs", "activeTab", "scripting","windows"],
+  "permissions": ["storage", "tabs", "activeTab", "scripting"],
   "host_permissions": ["https://leetcode.com/problems/*"],
   "content_scripts": [
     {
